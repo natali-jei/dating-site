@@ -1,11 +1,85 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="ka">
 <head>
-<title>ჩემი საიტი</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dating Site</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right,#ff758c,#ff7eb3);
+  margin:0;
+  padding:20px;
+}
+
+.container{
+  max-width:500px;
+  margin:auto;
+}
+
+.card{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  margin-top:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+input, textarea{
+  width:100%;
+  padding:8px;
+  margin:5px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button{
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  padding:8px;
+  border-radius:8px;
+  cursor:pointer;
+}
+button:hover{
+  background:#e63e5c;
+}
+</style>
 </head>
+
 <body>
-<h1>საიტი მუშაობს 🎉</h1>
-<p>ნატას პირველი ონლაინ საიტი</p>
-</body>
-</html>
+
+<div class="container">
+
+  <div class="card">
+    <h3>პროფილის დამატება</h3>
+    <input type="text" id="name" placeholder="სახელი">
+    <input type="number" id="age" placeholder="ასაკი">
+    <textarea id="bio" placeholder="აღწერა"></textarea>
+    <button onclick="addProfile()">დამატება</button>
+  </div>
+
+  <div id="profiles"></div>
+
+</div>
+
+<script>
+
+let profiles = [];
+
+function addProfile(){
+  const name = document.getElementById("name").value;
+  const age = document.getElementById("age").value;
+  const bio = document.getElementById("bio").value;
+
+  if(!name  !age  !bio){
+    alert("შეავსე ყველა ველი");
+    return;
+  }
+
+  profiles.push({name, age, bio});
+  renderProfiles();
+
+  document.getElementById("name").value="";
+  document.getElement
